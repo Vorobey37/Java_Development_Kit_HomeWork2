@@ -1,9 +1,11 @@
+package Server;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ServerWindow extends JFrame {
+public class ServerWindow extends JFrame implements iServerView{
 
     private static final int POSITION_X = 500;
     private static final int POSITION_Y = 550;
@@ -13,7 +15,7 @@ public class ServerWindow extends JFrame {
     private final JButton buttonStart = new JButton("Start");
     private final JButton buttonStop = new JButton("Stop");
     private final JPanel buttonPanel = new JPanel(new BorderLayout());
-    private final JTextArea log = new JTextArea();
+    private JTextArea log = new JTextArea();
 
 
     private boolean isServerWorking;
@@ -63,10 +65,12 @@ public class ServerWindow extends JFrame {
 
     }
 
+    @Override
     public JTextArea getLog() {
         return log;
     }
 
+    @Override
     public boolean isServerWorking() {
         return isServerWorking;
     }
